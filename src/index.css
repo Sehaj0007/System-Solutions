@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: #08152B;
+  --color-navy-2: #0E2248;
+  --color-blue: #2454E8;
+  --color-blue-light: #5B84FF;
+  --color-ice: #F6F8FC;
+  --color-ice-2: #ECF1FA;
+  --color-steel: #8C9BB5;
+  --color-steel-dark: #48546B;
+  --color-gold: #C9A227;
+  --color-gold-light: #E4C555;
+  --color-ink: #101826;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-ice);
+  color: var(--color-ink);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* thin scrollbar for cart / horizontal scroll strips */
+.thin-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+.thin-scroll::-webkit-scrollbar-thumb { background: var(--color-steel); border-radius: 4px; }
+.thin-scroll::-webkit-scrollbar-track { background: transparent; }
+
+@keyframes circuit-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
+}
+.circuit-pulse { animation: circuit-pulse 4s ease-in-out infinite; }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.float-slow { animation: float-slow 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .circuit-pulse, .float-slow { animation: none; }
+  html { scroll-behavior: auto; }
+}
